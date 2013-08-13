@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "Auto F5",
+  "description": "Auto Refresh when resource update",
+  "version": "1.0",
+  "minimum_chrome_version" : "17.0.0",
+
+  "browser_action": {
+    "default_icon": "src/img/icon_disable.png"
+  },
+
+  "background": {
+    "scripts": ["src/js/background.js"]
+  },
+
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["src/js/auto-f5.js"],
+    "run_at": "document_idle"
+  }],
+
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*/*"
+  ]
+
+}
